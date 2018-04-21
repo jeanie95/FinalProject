@@ -9,10 +9,6 @@ import re
 from abc import ABCMeta, abstractmethod
 from json import JSONDecodeError
 import logging as log
-import bs4
-import http.client
-import urllib
-from yelpapi import YelpAPI
 
 class InstagramUser:
     def __init__ (self, user_id, username = None, bio = None, followers_count=None, following_count =None, is_private =False):
@@ -173,11 +169,9 @@ class HashTagSearchExample(HashTagSearch):
             self.total_posts += 1
             print("%i - %s" % (self.total_posts, post.processed_text()))
 
-def Yelp_info(yelp_id, yelp_key):
-    yelp_api = YelpAPI(yelp_id, yelp_key)
-    search_results = yelp_api.search_query(term='Neptune Oyster', location='Boston, MA')
-    for business in search_results['businesses']:
-        print (business['name'])
+
+
+
 
 # if __name__ == '__main__':
 #     log.basicConfig(level=log.INFO)
